@@ -2,15 +2,14 @@ package com.example.demo.services.impl
 
 import com.example.demo.services.api.MeteorologyServiceAPI
 import com.example.demo.models.Meteorology
-import com.example.demo.repositories.MeteorologyRepository
-import com.example.demo.services.exception.MeteorologyNotFoundException
+import com.example.demo.repositories.impl.MeteorologyRepositoryImpl
 import org.springframework.stereotype.Service
 
 @Service
-abstract class MeteorologyServiceImpl(val meteorologyRepository: MeteorologyRepository) : MeteorologyServiceAPI {
+abstract class MeteorologyServiceImpl(val meteorologyRepository: MeteorologyRepositoryImpl) : MeteorologyServiceAPI {
 
-    override fun getMeteorology(id: String) = meteorologyRepository.findById(id).orElseThrow {
-        MeteorologyNotFoundException("Unable to find meteorology for $id id")
+    override fun getMeteorology(id: String) : Meteorology {
+        return meteorologyRepository.getMeteorology(id)
     }
 
     override fun getAllMeteorologies(): List<Meteorology> = meteorologyRepository.findAll().toList()
