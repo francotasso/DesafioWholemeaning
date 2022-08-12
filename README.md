@@ -1,6 +1,6 @@
 # DesafioWholemeaning
 
-API Rest aún no finalizada debido a unos inconvenientes
+API Rest aún no está finalizada debido a unos inconvenientes
 
 Para el diseño de la API Rest se utilizó el patrón Repository, el cual trata de evitar el código
 repetido, a través de una interface que implementa los métodos tradicionales de un CRUD, de esta
